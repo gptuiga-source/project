@@ -214,6 +214,7 @@ nav {
 }
 .h h1 {
 	font-size: 40px;
+	text-align: center;
 }
 
 .container_1 {
@@ -370,6 +371,11 @@ footer a {
 	.box p {
 		font-weight: 100;
 		font-size: 15px;
+	}
+
+	.box h1 {
+		font-size: 20px;
+		overflow: hidden;
 	}
 	.button_1 button {
 		width: 100%;
