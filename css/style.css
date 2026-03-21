@@ -188,6 +188,10 @@ nav {
 	background-color: white;
 }
 
+.box a {
+	text-decoration: none;
+}
+
 .button_1 button:hover {
 	border-color: rgb(0, 162, 255);
 	background-color: black;
