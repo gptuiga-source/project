@@ -1,0 +1,149 @@
+body {
+	background-color: #363636;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 150px;
+}
+
+.container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.input-group {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	width: 50%;
+	align-items: center;
+}
+
+.tuiga {
+	display: flex;
+	justify-content: start;
+	align-items: start;
+	width: 50%;
+	color: white;
+	margin: 0;
+}
+
+.tuiga h1 {
+	font-size: 40px;
+	margin: 0;
+	position: relative;
+	top: 10px;
+}
+
+input {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 2px solid white;
+	margin-top: 10px;
+	height: 50px;
+	box-shadow: none;
+	outline: none;
+	font-size: 20px;
+
+	transition: 0.3s;
+}
+
+input:focus {
+	border-color: red;
+}
+
+.btn-add {
+	width: 100%;
+	padding: 10px;
+	background: none;
+	border: 1px solid #42a5f5;
+	color: #42a5f5;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	height: 45px;
+	transition: 0.3s;
+}
+
+.btn-add:active {
+	transform: scale(0.98);
+}
+
+.list {
+	background: white;
+	color: black;
+	list-style: none;
+	padding: 0;
+	border-radius: 5px;
+	list-style: none;
+	overflow: hidden;
+	width: 40%;
+}
+
+.list-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 15px;
+	color: #333;
+	font-size: 20px;
+	font-weight: bolds;
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.actions button {
+	border: none;
+	border-radius: 4px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+}
+
+.actions button:active {
+	transform: scale(0.9);
+}
+
+.btn-danger {
+	background-color: #f44336; /* Красный */
+}
+
+@media (max-width: 720px) {
+	.tuiga h1 {
+		position: static;
+		text-align: center;
+		font-size: 20px;
+	}
+
+	input {
+		font-size: 15px;
+	}
+
+	.tuiga {
+		justify-content: center;
+	}
+
+	.list {
+		width: 70%;
+	}
+
+	.list-item {
+		font-size: 15px;
+	}
+}

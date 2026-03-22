@@ -59,7 +59,7 @@ function number(ipt1, ipt2, action1) {
 	const num2 = Number(ipt2.value)
 
 	if (counter == 7) {
-		return 'hello world'
+		return 'Hello world'
 	}
 	if (action == '+') {
 		return num1 + num2
