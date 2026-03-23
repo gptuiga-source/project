@@ -109,7 +109,6 @@ input:focus {
 	width: 40px;
 	height: 40px;
 	cursor: pointer;
-	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -120,8 +119,22 @@ input:focus {
 	transform: scale(0.9);
 }
 
-.btn-danger {
-	background-color: #f44336; /* Красный */
+.btn-danger1 {
+	background-color: #f44336;
+	color: white;
+}
+
+.btn-danger2 {
+	background-color: green;
+	color: white;
+}
+
+.btn-danger3 {
+	background-color: #f6c23e;
+	color: black;
+}
+.text-decoration-line-through {
+	text-decoration: line-through;
 }
 
 @media (max-width: 720px) {
@@ -145,5 +158,9 @@ input:focus {
 
 	.list-item {
 		font-size: 15px;
+	}
+
+	.actions {
+		flex-direction: row;
 	}
 }

@@ -1,44 +1,56 @@
 const inputElement = document.getElementById('note-input')
-const submit = document.getElementById('btn-add')
+const createBtn = document.getElementById('btn-add')
 const listElement = document.getElementById('list')
+
 const notes = JSON.parse(localStorage.getItem('notes')) || []
 
-function saveToStorage() {
+function saveToLocalStorage() {
 	localStorage.setItem('notes', JSON.stringify(notes))
 }
 
-function task(name) {
-	listElement.insertAdjacentHTML(
-		'afterbegin',
-		`<li class="list-item">
-			<span>${name}</span>
-			<div class="actions">
-				<button class="btn-danger" onclick="delTask(this)">✖</button>
-			</div>
-		</li>`,
-	)
-}
+createBtn.onclick = function () {
+	if (inputElement.value.length === 0) return
 
-function delTask(btn) {
-	const parent = btn.closest('.list-item')
-	const text = parent.querySelector('span').textContent
-	const index = notes.indexOf(text)
-
-	if (index !== -1) {
-		notes.splice(index, 1)
-		saveToStorage()
+	const newNote = {
+		title: inputElement.value,
+		completed: false,
 	}
-	parent.remove()
-}
 
-notes.forEach(note => task(note))
-
-submit.onclick = function () {
-	const result = inputElement.value.trim()
-	if (result === '' || notes.includes(result)) return
-
-	task(result)
-	notes.push(result)
-	saveToStorage()
+	notes.push(newNote)
+	saveToLocalStorage()
+	render()
 	inputElement.value = ''
 }
+
+function render() {
+	listElement.innerHTML = ''
+
+	for (let i = 0; i < notes.length; i++) {
+		listElement.insertAdjacentHTML('afterbegin', getNoteTemplate(notes[i], i))
+	}
+}
+
+function getNoteTemplate(note, index) {
+	return `
+		<li class="list-item">
+			<span class='${note.completed ? 'text-decoration-line-through' : ''}' data-index="${index}">${note.title}</span>
+			<div class="actions">
+				<button class="btn-danger1" onclick="removeNote(${index})">✖</button>
+				<button class="${note.completed ? 'btn-danger3' : 'btn-danger2'}" onclick="toggleNote(${index})">✔ </button>
+			</div>
+		</li>`
+}
+
+function removeNote(index) {
+	notes.splice(index, 1)
+	saveToLocalStorage()
+	render()
+}
+
+function toggleNote(index) {
+	notes[index].completed = !notes[index].completed
+	saveToLocalStorage()
+	render()
+}
+
+render()
