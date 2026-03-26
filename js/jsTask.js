@@ -2,7 +2,7 @@ const inputElement = document.getElementById('note-input')
 const createBtn = document.getElementById('btn-add')
 const listElement = document.getElementById('list')
 
-const notes = JSON.parse(localStorage.getItem('notes')) || []
+const notes = (JSON.parse(localStorage.getItem('notes')) || []).filter(n => n)
 
 function saveToLocalStorage() {
 	localStorage.setItem('notes', JSON.stringify(notes))
@@ -26,6 +26,7 @@ function render() {
 	listElement.innerHTML = ''
 
 	for (let i = 0; i < notes.length; i++) {
+		if (!notes[i]) continue
 		listElement.insertAdjacentHTML('afterbegin', getNoteTemplate(notes[i], i))
 	}
 }
